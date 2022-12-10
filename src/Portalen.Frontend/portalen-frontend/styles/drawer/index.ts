@@ -36,24 +36,32 @@ const openedMixin = (theme: Theme): CSSObject => ({
     },
   });
 
+export const CollapsedDrawer = styled(Drawer)(
+  ({ theme }) => ({
+    ...fullMixin(theme),
+      '& .MuiDrawer-paper': fullMixin(theme)
+  }),
+);
+
 export const PortalDrawer = styled(Drawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+    boxSizing: 'border-box',
+    ...(open && {
+      ...openedMixin(theme),
+      '& .MuiDrawer-paper': openedMixin(theme),
+    }),
     ...(!open && {
       ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme),
-    "&:hover": {
-      ...openedMixin(theme),
-      "& .MuiDrawer-paper": openedMixin(theme)
-    },
+      '& .MuiDrawer-paper': closedMixin(theme),
+    }),
     [theme.breakpoints.down('sm')]: {
         display: "none"
     }
-    }),
-    ...(open && {
-      ...fullMixin(theme),
-      "& .MuiDrawer-paper": fullMixin(theme)
-    })
-}));
+  }),
+);
 
 export const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',

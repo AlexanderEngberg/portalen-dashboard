@@ -9,16 +9,16 @@ export interface AppLayoutProps {
 }
 
 export default function AppLayout({ children }: AppLayoutProps) {
-  const [open, setOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(!open);
+  const handlCollapsed = () => {
+    setCollapsed(!collapsed);
   };
 
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar handleDrawerOpen={handleDrawerOpen} />
-      <SideBar handleDrawerOpen={handleDrawerOpen} open={open} />
+      <AppBar handlCollapsed={handlCollapsed} />
+      <SideBar handlCollapsed={handlCollapsed} collapsed={collapsed} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {children}
       </Box>

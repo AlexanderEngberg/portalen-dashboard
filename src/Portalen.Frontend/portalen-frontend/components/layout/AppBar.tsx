@@ -3,10 +3,10 @@ import { Box, Toolbar, Container, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export interface AppBarProps {
-  handleDrawerOpen: Function;
+  handlCollapsed: Function;
 }
 
-export default function AppBar({ handleDrawerOpen }: AppBarProps) {
+export default function AppBar({ handlCollapsed }: AppBarProps) {
   return (
     <PortalAppBar>
       <Container maxWidth="xl">
@@ -18,7 +18,7 @@ export default function AppBar({ handleDrawerOpen }: AppBarProps) {
               color="secondary"
               aria-label="menu"
               sx={{ mr: 2 }}
-              onClick={() => handleDrawerOpen()}
+              onClick={() => handlCollapsed()}
             >
               <MenuIcon />
             </IconButton>
