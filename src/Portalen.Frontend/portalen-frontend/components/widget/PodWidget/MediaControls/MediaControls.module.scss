@@ -1,0 +1,16 @@
+.control{
+    display: flex;
+    flex-direction: column;
+}
+
+.progress{
+    display: flex;
+    :global .MuiLinearProgress-root {
+        width: -webkit-fill-available;
+        margin: auto;
+    }
+    span {
+        white-space: nowrap;
+        margin-left: 0.5rem;
+    }
+}
