@@ -10,7 +10,7 @@ export interface AppLayoutProps {
 
 export default function AppLayout({ children }: AppLayoutProps) {
   const [open, setOpen] = useState(false);
-
+  //Test
   const handleDrawerOpen = () => {
     setOpen(!open);
   };
