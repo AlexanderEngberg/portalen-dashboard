@@ -16,10 +16,10 @@ export default function AppLayout({ children }: AppLayoutProps) {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", flexGrow: 1 }}>
       <AppBar handlCollapsed={handlCollapsed} />
       <SideBar handlCollapsed={handlCollapsed} collapsed={collapsed} />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ display: "flex", flexGrow: 1, p: "0 1rem" }}>
         {children}
       </Box>
     </Box>

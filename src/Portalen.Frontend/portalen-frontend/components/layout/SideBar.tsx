@@ -5,6 +5,8 @@ import {
   DrawerHeader,
 } from "../../styles/drawer";
 import {
+  Box,
+  Divider,
   IconButton,
   List,
   ListItem,
@@ -15,6 +17,9 @@ import {
 import HomeIcon from "@mui/icons-material/Home";
 import CloseIcon from "@mui/icons-material/Close";
 import SettingsIcon from "@mui/icons-material/Settings";
+
+import Image from "next/image";
+import headerPic from "../../public/react-hero-logo.9394d800.svg";
 
 export interface SideBarProps {
   collapsed: boolean;
@@ -27,32 +32,42 @@ export default function SideBar({ collapsed, handlCollapsed }: SideBarProps) {
     <>
       {collapsed ? (
         <CollapsedDrawer open={collapsed}>
-          <IconButton color="secondary" onClick={() => handlCollapsed()}>
-            <CloseIcon />
-          </IconButton>
-          <DrawerHeader />
-          <List>
-            {["Overview", "Settings"].map((text, index) => (
-              <ListItem key={text} disablePadding sx={{ display: "block" }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    px: 2.5,
-                  }}
+          <Box sx={{ pr: 4, pl: 4 }}>
+            <DrawerHeader>
+              <IconButton color="secondary" onClick={() => handlCollapsed()}>
+                <CloseIcon />
+              </IconButton>
+            </DrawerHeader>
+            <Divider sx={{ borderColor: "#2e3650" }} />
+            <List>
+              {["Overview", "Settings"].map((text, index) => (
+                <ListItem
+                  key={text}
+                  disablePadding
+                  sx={{ display: "block", mb: 2 }}
                 >
-                  <ListItemIcon
+                  <ListItemButton
                     sx={{
-                      minWidth: 0,
-                      justifyContent: "center",
+                      minHeight: 48,
+                      px: 2.5,
                     }}
                   >
-                    {index % 2 === 0 ? <HomeIcon /> : <SettingsIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+                    <ListItemIcon
+                      sx={{
+                        color: "white",
+                        minWidth: 0,
+                        mr: 3,
+                        justifyContent: "center",
+                      }}
+                    >
+                      {index % 2 === 0 ? <HomeIcon /> : <SettingsIcon />}
+                    </ListItemIcon>
+                    <ListItemText primary={text} sx={{ color: "white" }} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
         </CollapsedDrawer>
       ) : (
         <div
@@ -60,10 +75,14 @@ export default function SideBar({ collapsed, handlCollapsed }: SideBarProps) {
           onMouseLeave={() => setOpen(false)}
         >
           <PortalDrawer variant="permanent" open={open}>
-            <DrawerHeader />
+            <DrawerHeader></DrawerHeader>
             <List>
               {["Overview", "Settings"].map((text, index) => (
-                <ListItem key={text} disablePadding sx={{ display: "block" }}>
+                <ListItem
+                  key={text}
+                  disablePadding
+                  sx={{ display: "block", mb: 2 }}
+                >
                   <ListItemButton
                     sx={{
                       minHeight: 48,
@@ -73,6 +92,7 @@ export default function SideBar({ collapsed, handlCollapsed }: SideBarProps) {
                   >
                     <ListItemIcon
                       sx={{
+                        color: "white",
                         minWidth: 0,
                         mr: open ? 3 : "auto",
                         justifyContent: "center",
@@ -82,7 +102,7 @@ export default function SideBar({ collapsed, handlCollapsed }: SideBarProps) {
                     </ListItemIcon>
                     <ListItemText
                       primary={text}
-                      sx={{ opacity: open ? 1 : 0 }}
+                      sx={{ opacity: open ? 1 : 0, color: "white" }}
                     />
                   </ListItemButton>
                 </ListItem>

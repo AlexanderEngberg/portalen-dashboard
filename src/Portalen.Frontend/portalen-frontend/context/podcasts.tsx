@@ -2,7 +2,7 @@ export const podcastData = [
   {
     id: 1,
     program: "P1 Dokumentär",
-    info: "",
+    info: "Pionjärdykarna i Nordsjön",
     icon_url:
       "https://static-cdn.sr.se/images/909/951d2df5-ddc0-4634-ba9c-8bc9116297af.jpg?preset=api-default-square",
     file_url:
@@ -11,7 +11,7 @@ export const podcastData = [
   {
     id: 2,
     program: "P3 Dokumentär",
-    info: "",
+    info: "Spionfallet på kinesiska ambassaden",
     icon_url:
       "https://static-cdn.sr.se/images/909/951d2df5-ddc0-4634-ba9c-8bc9116297af.jpg?preset=api-default-square",
     file_url:
@@ -20,7 +20,7 @@ export const podcastData = [
   {
     id: 3,
     program: "USApodden",
-    info: "Vad händer med USA sdsfdsfsfsdfsdfdsfsdfdsfsfdaa dsdfsdfdsfdsf",
+    info: "Joe Biden tänker överge Iowa",
     icon_url:
       "https://static-cdn.sr.se/images/4923/8b4ac720-4872-4937-ba7a-9ed3f67f8834.jpg?preset=api-default-square",
     file_url:
@@ -29,7 +29,7 @@ export const podcastData = [
   {
     id: 4,
     program: "USApodden",
-    info: "Vad händer med USA sdsfdsfsfsdfsdfdsfsdfdsfsfdaa dsdfsdfdsfdsf",
+    info: "Högerextremisten som kan bli Trumps fall",
     icon_url:
       "https://static-cdn.sr.se/images/4923/8b4ac720-4872-4937-ba7a-9ed3f67f8834.jpg?preset=api-default-square",
     file_url:
