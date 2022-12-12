@@ -8,7 +8,7 @@ export interface AppBarProps {
 
 export default function AppBar({ handlCollapsed }: AppBarProps) {
   return (
-    <PortalAppBar position="fixed">
+    <PortalAppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ justifyContent: "flex-end" }}>
           <Box>

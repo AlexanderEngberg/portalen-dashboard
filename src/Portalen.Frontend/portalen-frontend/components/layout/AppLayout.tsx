@@ -16,12 +16,17 @@ export default function AppLayout({ children }: AppLayoutProps) {
   };
 
   return (
-    <Box sx={{ display: "flex", flexGrow: 1 }}>
+    <>
       <AppBar handlCollapsed={handlCollapsed} />
-      <SideBar handlCollapsed={handlCollapsed} collapsed={collapsed} />
-      <Box component="main" sx={{ display: "flex", flexGrow: 1, p: "0 1rem" }}>
-        {children}
+      <Box sx={{ display: "flex", position: "relative" }}>
+        <SideBar handlCollapsed={handlCollapsed} collapsed={collapsed} />
+        <Box
+          component="main"
+          sx={{ display: "flex", flexGrow: 1, p: "1rem 1rem" }}
+        >
+          {children}
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }
