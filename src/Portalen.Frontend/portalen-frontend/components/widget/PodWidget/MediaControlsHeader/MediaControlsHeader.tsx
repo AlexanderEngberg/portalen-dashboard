@@ -1,18 +1,5 @@
 import { Box, Typography, CardMedia } from "@mui/material";
-import { styled, useTheme } from "@mui/material/styles";
-
-const CoverImage = styled("div")({
-  width: 120,
-  height: 120,
-  objectFit: "cover",
-  overflow: "hidden",
-  flexShrink: 0,
-  borderRadius: 8,
-  backgroundColor: "rgba(0,0,0,0.08)",
-  "& > .MuiCardMedia-root": {
-    width: "100%",
-  },
-});
+import { CoverImage } from "../../../../styles/podWidget";
 
 export interface MediaControlsHeaderProps {
   imageUrl: string;
