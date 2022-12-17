@@ -16,15 +16,6 @@ export default function Home(): ReactElement {
           <Grid item xs={12} md={6}>
             <PodCard />
           </Grid>
-          <Grid item xs={12} md={6}>
-            <PodCard />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <PodCard />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <PodCard />
-          </Grid>
         </Grid>
       </PlayerProvider>
     </>
