@@ -1,11 +1,19 @@
-import { createContext, useReducer, Dispatch, ReactNode } from "react";
+import {
+  createContext,
+  useReducer,
+  Dispatch,
+  ReactNode,
+  useEffect,
+} from "react";
 import { Action, PlayerState, ActionType } from "interfaces";
 import { podcastData } from "./podcasts";
 import { PlayStateReducer } from "./PlayStateReducer";
+import { useQuery } from "react-query";
+import Axios from "axios";
 
 export const initialState: PlayerState = {
   currentSong: -1,
-  podcasts: podcastData,
+  podcasts: [],
   repeat: false,
   random: false,
   playing: false,
@@ -40,8 +48,28 @@ export interface PodStateProviderProps {
   children: ReactNode;
 }
 
+function GetData() {
+  const { data } = useQuery(["pods"], () => {
+    return Axios.get("https://localhost:7108/api/Podcast").then(
+      (res) => res.data
+    );
+  });
+
+  return data;
+}
+
 export default function PlayerProvider({ children }: PodStateProviderProps) {
   const [state, dispatch] = useReducer(PlayStateReducer, initialState);
+  const { data } = useQuery(["pods"], () => {
+    return Axios.get("https://localhost:7108/api/Podcast").then(
+      (res) => res.data
+    );
+  });
+  console.log(data);
+  /* dispatch({
+    type: ActionType.SET_PODCASTS_ARRAY,
+    payload: podcastData,
+  }); */
 
   const togglePlaying = () =>
     dispatch({
