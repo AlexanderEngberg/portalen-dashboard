@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { usePlayerState } from "context/PlayStateProvider";
 import {
   ListItem,
   ListItemIcon,
@@ -7,11 +7,12 @@ import {
 } from "@mui/material";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
-import { PlayerStateContext } from "context/PlayStateProvider";
 
 export function PodPlaylist() {
-  const { podcasts, playing, togglePlaying, currentSong, setCurrent } =
-    useContext(PlayerStateContext);
+  const {
+    state: { podcasts, currentSong, playing },
+    functions: { setCurrent, togglePlaying },
+  } = usePlayerState();
   return (
     <>
       {podcasts.map((podcast, index) => (

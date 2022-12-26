@@ -1,18 +1,11 @@
-import {
-  useContext,
-  useState,
-  useEffect,
-  useRef,
-  Ref,
-  ChangeEvent,
-} from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   TimeSlider,
   VolumeSlider,
   TinyText,
 } from "../../../../styles/podWidget";
-import { PlayerStateContext } from "context/PlayStateProvider";
-import { Box, Typography, IconButton, Stack } from "@mui/material";
+import { usePlayerState } from "context/PlayStateProvider";
+import { Box, IconButton, Stack } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 import PauseRounded from "@mui/icons-material/PauseRounded";
@@ -25,8 +18,10 @@ import Forward10Icon from "@mui/icons-material/Forward10";
 import Replay10Icon from "@mui/icons-material/Replay10";
 
 export function MediaControls() {
-  const { playing, togglePlaying, podcasts, currentSong, prevPod, nextPod } =
-    useContext(PlayerStateContext);
+  const {
+    state: { podcasts, currentSong, playing },
+    functions: { prevPod, nextPod, togglePlaying },
+  } = usePlayerState();
   const { fileUrl } = podcasts[currentSong] || {};
 
   const audioRef = useRef<HTMLAudioElement>(null);

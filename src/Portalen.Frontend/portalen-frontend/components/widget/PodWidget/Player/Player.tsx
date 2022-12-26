@@ -1,5 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { PlayerStateContext } from "context/PlayStateProvider";
+import { usePlayerState } from "context/PlayStateProvider";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import {
@@ -17,7 +16,9 @@ const Widget = styled("div")(({ theme }) => ({
 }));
 
 export function Player() {
-  const { podcasts, currentSong } = useContext(PlayerStateContext);
+  const {
+    state: { podcasts, currentSong },
+  } = usePlayerState();
   const { iconUrl, program, info } = podcasts[currentSong] || {};
   return (
     <Box sx={{ width: "100%", owerflow: "hidden" }}>

@@ -1,3 +1,5 @@
+import { Dispatch } from 'react';
+
 export interface Podcasts{
     id: number;
     program: string;
@@ -15,6 +17,13 @@ export interface PlayerState {
     audio: null,
 };
 
+export interface Functions {
+    togglePlaying: Function;
+    setCurrent: Function;
+    prevPod: Function;
+    nextPod: Function;
+};
+
 export enum ActionType {
     SET_PODCASTS_ARRAY = "SET_PODCASTS_ARRAY",
     SET_CURRENT_PODCAST = "SET_CURRENT_PODCAST",
@@ -29,3 +38,10 @@ export type Action =
   | { type: ActionType.TOGGLE_RANDOM; payload: boolean }
   | { type: ActionType.TOGGLE_REPEAT; payload: boolean }
   | { type: ActionType.TOGGLE_PLAYING; payload: boolean };
+
+
+  export interface PlayerStateState {
+    state: PlayerState;
+    functions: Functions;
+    dispatch: Dispatch<Action>;
+  }

@@ -1,5 +1,14 @@
 import { Action, ActionType, PlayerState } from "interfaces";
 
+export const initialState: PlayerState = {
+  currentSong: -1,
+  podcasts: [],
+  repeat: false,
+  random: false,
+  playing: false,
+  audio: null,
+};
+
 export function PlayStateReducer(
     state: PlayerState,
     action: Action
