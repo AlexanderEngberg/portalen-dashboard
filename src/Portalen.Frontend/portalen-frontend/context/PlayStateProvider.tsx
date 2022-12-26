@@ -48,28 +48,8 @@ export interface PodStateProviderProps {
   children: ReactNode;
 }
 
-function GetData() {
-  const { data } = useQuery(["pods"], () => {
-    return Axios.get("https://localhost:7108/api/Podcast").then(
-      (res) => res.data
-    );
-  });
-
-  return data;
-}
-
 export default function PlayerProvider({ children }: PodStateProviderProps) {
   const [state, dispatch] = useReducer(PlayStateReducer, initialState);
-  const { data } = useQuery(["pods"], () => {
-    return Axios.get("https://localhost:7108/api/Podcast").then(
-      (res) => res.data
-    );
-  });
-  console.log(data);
-  /* dispatch({
-    type: ActionType.SET_PODCASTS_ARRAY,
-    payload: podcastData,
-  }); */
 
   const togglePlaying = () =>
     dispatch({
@@ -102,6 +82,24 @@ export default function PlayerProvider({ children }: PodStateProviderProps) {
       setCurrent(state.currentSong + 1);
     }
   };
+
+  const getPodcasts = async () => {
+    try {
+      const res = await Axios.get("https://localhost:7108/api/Podcast");
+      if (res.data) {
+        dispatch({
+          type: ActionType.SET_PODCASTS_ARRAY,
+          payload: res.data,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getPodcasts();
+  }, []);
 
   return (
     <PlayerStateContext.Provider

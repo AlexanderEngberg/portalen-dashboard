@@ -27,7 +27,7 @@ import Replay10Icon from "@mui/icons-material/Replay10";
 export function MediaControls() {
   const { playing, togglePlaying, podcasts, currentSong, prevPod, nextPod } =
     useContext(PlayerStateContext);
-  const { file_url } = podcasts[currentSong] || {};
+  const { fileUrl } = podcasts[currentSong] || {};
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const [statevolum, setStateVolum] = useState(0.3);
@@ -86,7 +86,7 @@ export function MediaControls() {
         /* onEnded={handleEnd} */
         ref={audioRef}
         preload="true"
-        src={file_url}
+        src={fileUrl}
       />
       <TimeSlider
         aria-label="time-indicator"

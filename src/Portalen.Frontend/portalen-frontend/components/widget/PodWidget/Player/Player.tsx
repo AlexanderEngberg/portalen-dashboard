@@ -18,15 +18,11 @@ const Widget = styled("div")(({ theme }) => ({
 
 export function Player() {
   const { podcasts, currentSong } = useContext(PlayerStateContext);
-  const { icon_url, program, info } = podcasts[currentSong] || {};
+  const { iconUrl, program, info } = podcasts[currentSong] || {};
   return (
     <Box sx={{ width: "100%", owerflow: "hidden" }}>
       <Widget>
-        <MediaControlsHeader
-          imageUrl={icon_url}
-          program={program}
-          info={info}
-        />
+        <MediaControlsHeader imageUrl={iconUrl} program={program} info={info} />
         <MediaControls />
       </Widget>
     </Box>

@@ -2,8 +2,8 @@ export interface Podcasts{
     id: number;
     program: string;
     info: string;
-    icon_url: string;
-    file_url: string;
+    iconUrl: string;
+    fileUrl: string;
 };
 
 export interface PlayerState {
