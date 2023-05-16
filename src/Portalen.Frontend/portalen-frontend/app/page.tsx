@@ -1,6 +1,15 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
 export default function Home() {
-  return <></>;
+  return (
+    <div className="grid grid-cols-4 gap-4">
+      <div>01</div>
+      <div>01</div>
+      <div>01</div>
+      <div>01</div>
+      <div>01</div>
+      <div>01</div>
+      <div>01</div>
+      <div>01</div>
+      <div>09</div>
+    </div>
+  );
 }

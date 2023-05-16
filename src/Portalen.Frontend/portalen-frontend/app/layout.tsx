@@ -25,7 +25,7 @@ export default function RootLayout({
           <div className="sm:flex">
             <AppBar />
             <Sidebar />
-            <main>
+            <main className="w-screen">
               <Toolbar />
               {children}
             </main>
