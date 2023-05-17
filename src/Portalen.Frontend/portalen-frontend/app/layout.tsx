@@ -22,10 +22,10 @@ export default function RootLayout({
     <html lang="en">
       <ApolloProvider client={apolloClient}>
         <body className={inter.className}>
-          <div className="sm:flex h-full">
+          <div className="sm:flex">
             <Navbar />
             <Sidebar />
-            <main className="p-2 w-full">
+            <main className="p-2 w-full max-h-full">
               <Toolbar />
               {children}
             </main>
