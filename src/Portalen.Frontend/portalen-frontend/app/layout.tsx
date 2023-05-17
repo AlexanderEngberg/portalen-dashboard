@@ -2,7 +2,7 @@
 import { Inter } from "next/font/google";
 import { ApolloProvider } from "@apollo/client";
 import apolloClient from "../clients/apolloClient";
-import { AppBar, Sidebar, Toolbar } from "@/components/layout";
+import { Navbar, Sidebar, Toolbar } from "@/components/layout";
 
 import "./globals.css";
 
@@ -23,9 +23,9 @@ export default function RootLayout({
       <ApolloProvider client={apolloClient}>
         <body className={inter.className}>
           <div className="sm:flex">
-            <AppBar />
+            <Navbar />
             <Sidebar />
-            <main className="px-4 sm:w-screen h-screen">
+            <main>
               <Toolbar />
               {children}
             </main>

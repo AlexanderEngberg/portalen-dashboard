@@ -4,7 +4,7 @@ import React, { ReactElement, useState } from "react";
 import { useGetHeaderQuery } from "@/generated";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 
-export function AppBar(): ReactElement {
+export function Navbar(): ReactElement {
   const [open, setOpen] = useState(false);
   const { data } = useGetHeaderQuery({
     variables: { id: "7np6tnJuMcAEc5AhQkpMwk" },
