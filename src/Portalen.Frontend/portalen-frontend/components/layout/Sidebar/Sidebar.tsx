@@ -11,7 +11,7 @@ export function Sidebar(): ReactElement {
   });
   const header = data?.header || {};
   return (
-    <div className="max-sm:hidden w-20 bg-main transition-all duration-500 ease-in-out hover:w-64">
+    <div className="max-sm:hidden w-20 h-full bg-main transition-all duration-500 ease-in-out hover:w-64">
       <div className="p-2">
         <div className="flex items-center">
           <Image
