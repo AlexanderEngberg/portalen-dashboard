@@ -16,7 +16,14 @@ module.exports = {
     extend: {
       colors: {
         "main": "#262b40",
-        "secondary": "#f5f8fb"
+        "secondary": "#f5f8fb",
+        "white": {
+          default: "#fff",
+          20: "rgba(255,255,255,.2)",
+          40: "rgba(255,255,255,.4)",
+          60: "rgba(255,255,255,.6)",
+          80: "rgba(255,255,255,.8)",
+        }
       }
     },
   },

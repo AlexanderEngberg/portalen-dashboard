@@ -1,5 +1,9 @@
 query GetHeader($id: String!) {
   header(id: $id) {
     label
+    image {
+      title
+      url
+    }
   }
 }

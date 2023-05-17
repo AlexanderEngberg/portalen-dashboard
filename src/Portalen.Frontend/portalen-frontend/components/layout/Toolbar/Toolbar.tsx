@@ -2,5 +2,5 @@
 import React, { ReactElement } from "react";
 
 export function Toolbar(): ReactElement {
-  return <div className="w-full bg-secondary">kaka</div>;
+  return <div className="bg-secondary"></div>;
 }

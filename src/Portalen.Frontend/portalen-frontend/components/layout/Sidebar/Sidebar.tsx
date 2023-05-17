@@ -1,6 +1,9 @@
 "use client";
-import { useGetHeaderQuery } from "@/generated";
+import Image from "next/image";
 import React, { ReactElement } from "react";
+import { useGetHeaderQuery } from "@/generated";
+
+import { HomeIcon } from "@heroicons/react/24/solid";
 
 export function Sidebar(): ReactElement {
   const { data } = useGetHeaderQuery({
@@ -8,8 +11,62 @@ export function Sidebar(): ReactElement {
   });
   const header = data?.header || {};
   return (
-    <div className="max-sm:hidden w-16 h-screen bg-main transition-all duration-500 ease-in-out hover:w-40">
-      <p className="text-xl text-secondary">{header.label || "P"}</p>
+    <div className="max-sm:hidden w-20 h-screen bg-main transition-all duration-500 ease-in-out hover:w-64">
+      <div className="p-2">
+        <div className="flex items-center">
+          <Image
+            loader={() => header.image?.url || ""}
+            src={header.image?.url || ""}
+            width={0}
+            height={0}
+            alt={header.image?.title || ""}
+            className="h-16 w-16"
+          />
+          <p className="overflow-hidden text-xl text-secondary font-bold">
+            {header.label || "P"}
+          </p>
+        </div>
+        <nav className="mt-6">
+          <div className="mx-2">
+            <a
+              className="flex items-center rounded-lg hover:bg-white-20 px-3"
+              href="#"
+            >
+              <HomeIcon className="overflow-visible h-6 w-6 text-secondary" />
+              <span className="overflow-hidden text-sm text-secondary m-4">
+                Overview
+              </span>
+            </a>
+            <a
+              className="flex items-center rounded-lg hover:bg-white-20 px-3"
+              href="#"
+            >
+              <HomeIcon className="overflow-visible h-6 w-6 text-secondary" />
+              <span className="overflow-hidden text-sm text-secondary m-4">
+                Overview
+              </span>
+            </a>
+            <a
+              className="flex items-center rounded-lg hover:bg-white-20 px-3"
+              href="#"
+            >
+              <HomeIcon className="overflow-visible h-6 w-6 text-secondary" />
+              <span className="overflow-hidden text-sm text-secondary m-4">
+                Overview
+              </span>
+            </a>
+            <a
+              className="flex items-center rounded-lg hover:bg-white-20 px-3"
+              href="#"
+            >
+              <HomeIcon className="overflow-visible h-6 w-6 text-secondary" />
+              <span className="overflow-hidden text-sm text-secondary m-4">
+                Overview
+              </span>
+            </a>
+          </div>
+        </nav>
+      </div>
     </div>
   );
 }

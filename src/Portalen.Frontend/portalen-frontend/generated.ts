@@ -170,10 +170,19 @@ export type AssetFilter = {
 export type AssetLinkingCollections = {
   __typename?: 'AssetLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
+  headerCollection?: Maybe<HeaderCollection>;
 };
 
 
 export type AssetLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type AssetLinkingCollectionsHeaderCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale?: InputMaybe<Scalars['String']>;
   preview?: InputMaybe<Scalars['Boolean']>;
@@ -264,9 +273,17 @@ export enum EntryOrder {
 export type Header = Entry & {
   __typename?: 'Header';
   contentfulMetadata: ContentfulMetadata;
+  image?: Maybe<Asset>;
   label?: Maybe<Scalars['String']>;
   linkedFrom?: Maybe<HeaderLinkingCollections>;
   sys: Sys;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/6s9t95w9spo3/content_types/header) */
+export type HeaderImageArgs = {
+  locale?: InputMaybe<Scalars['String']>;
+  preview?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -293,6 +310,7 @@ export type HeaderFilter = {
   AND?: InputMaybe<Array<InputMaybe<HeaderFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<HeaderFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  image_exists?: InputMaybe<Scalars['Boolean']>;
   label?: InputMaybe<Scalars['String']>;
   label_contains?: InputMaybe<Scalars['String']>;
   label_exists?: InputMaybe<Scalars['Boolean']>;
@@ -529,13 +547,17 @@ export type GetHeaderQueryVariables = Exact<{
 }>;
 
 
-export type GetHeaderQuery = { __typename?: 'Query', header?: { __typename?: 'Header', label?: string | null } | null };
+export type GetHeaderQuery = { __typename?: 'Query', header?: { __typename?: 'Header', label?: string | null, image?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null };
 
 
 export const GetHeaderDocument = gql`
     query GetHeader($id: String!) {
   header(id: $id) {
     label
+    image {
+      title
+      url
+    }
   }
 }
     `;
