@@ -12,8 +12,8 @@ export function Navbar(): ReactElement {
   });
   const header = data?.header || {};
   return (
-    <div>
-      <nav className="sm:hidden flex justify-between items-center p-2 bg-main">
+    <div className="sm:hidden">
+      <nav className="flex justify-between items-center p-2 bg-main">
         <div className="flex items-center">
           <Image
             loader={() => header.image?.url || ""}
