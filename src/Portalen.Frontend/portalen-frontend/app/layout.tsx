@@ -25,7 +25,7 @@ export default function RootLayout({
           <div className="sm:flex min-h-screen">
             <Navbar />
             <Sidebar />
-            <main className="p-2 w-full overflow-hidden">
+            <main className="p-2 w-full relative">
               <Toolbar />
               {children}
             </main>
