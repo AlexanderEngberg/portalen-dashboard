@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <ApolloProvider client={apolloClient}>
         <body className={inter.className}>
-          <div className="sm:flex">
+          <div className="sm:flex min-h-screen">
             <Navbar />
             <Sidebar />
             <main className="p-2 w-full overflow-hidden">

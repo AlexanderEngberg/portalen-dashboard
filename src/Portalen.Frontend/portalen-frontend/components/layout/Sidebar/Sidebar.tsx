@@ -12,8 +12,8 @@ export function Sidebar(): ReactElement {
   const header = data?.header || {};
   //shrink-0 whitespace-nowrap box-border overflow-x-hidden permanent
   return (
-    <div className="max-sm:hidden max-h-full inset-y-0 w-20 bg-main transition-all duration-500 ease-in-out hover:w-64">
-      <div className="p-2 fixed">
+    <div className="max-sm:hidden relative max-h-full inset-y-0 w-20 bg-main transition-all duration-500 ease-in-out hover:w-64">
+      <div className="p-2 fixed h-full">
         <div className="flex items-center">
           <Image
             loader={() => header.image?.url || ""}
