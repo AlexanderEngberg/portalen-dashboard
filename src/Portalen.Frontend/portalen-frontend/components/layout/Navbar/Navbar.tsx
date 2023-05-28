@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { ReactElement, useState } from "react";
 import { useGetHeaderQuery } from "@/generated";
 import { Bars3Icon } from "@heroicons/react/24/solid";
-import { Drawer } from "../Drawer";
+import { Drawer } from "@/components/layout";
 
 export function Navbar(): ReactElement {
   const [open, setOpen] = useState(false);
@@ -13,7 +13,7 @@ export function Navbar(): ReactElement {
   const header = data?.header || {};
   return (
     <div className="sm:hidden">
-      <nav className="flex justify-between items-center p-2 bg-main">
+      <nav className="flex justify-between items-center px-2 py-3 bg-main">
         <div className="flex items-center">
           <Image
             loader={() => header.image?.url || ""}
@@ -23,7 +23,7 @@ export function Navbar(): ReactElement {
             alt={header.image?.title || ""}
             className="h-16 w-16"
           />
-          <p className="text-xl text-secondary font-bold">
+          <p className="text-xl text-secondary font-bold ml-2">
             {header.label || "Portalen"}
           </p>
         </div>
